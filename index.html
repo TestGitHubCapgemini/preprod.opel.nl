@@ -219,7 +219,31 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
+<script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
 <style>
+.embedded-service .fab div[class="icon_fab_container"] > img.esw-custom_icon{
+width : 100% !important;
+}
+button#esw-fab{
+height:80px !important;
+width:80px !important;
+background-color: transparent;
+}
+button#esw-fab[aria-expanded="true"]{
+height: 56px !important;
+width: 56px !important;
+bottom: 16px !important;
+}
+.embedded-service #esw-fab.showAnimation{
+animation:channelmenu-rotate-in-2-br-cw 0.5s ease-in both,channelmenu-shadow-pulse 2s infinite;
+}
+.embedded-service .fab div[class="icon_fab_container"] {
+width: 68px !important;
+height: 68px !important;
+background-size: 70px 70px !important;
+}
+
+</style><style>
 .embedded-service .fab div[class="icon_fab_container"] > img.esw-custom_icon{
 width : 100% !important;
 }
@@ -262,7 +286,15 @@ background-size: 70px 70px !important;
 .embedded-service .fab:focus {
     box-shadow: 0 0 0px 0px transparent; 
 }
-  
+
+.embedded-service .channelmenu_header p {
+ color: #FFFFFF !important;
+}
+
+.embedded-service .channelmenu_header h2 {
+ color: #FFFFFF !important;
+}
+
 .embeddedServiceLiveAgentStateChatPlaintextMessageDefaultUI.chasitor.plaintextContent {
 color: black !important;
 }
@@ -271,15 +303,16 @@ color: black !important;
 <script type='text/javascript'>
 var initESW = function(gslbBaseURL) {
     // Required if you want labels in a language that’s different from your user’s context.
-    embedded_svc.menu.settings.language = 'nl_NL'; //For example, enter 'en' or 'en-US'
+    embedded_svc.menu.settings.language = 'de'; //For example, enter 'en' or 'en-US'
 	
 		embedded_svc.menu.init(
 			'https://psa-customerfirst--preprod.sandbox.my.salesforce.com',
 			'https://d.la3-c1cs-fra.salesforceliveagent.com/chat',
 			gslbBaseURL,
 			'00D5t0000004fHO',
-			'NL_OPEL_PCDO'
+			'DE_OP_PCDO'
 		);
+
 };
 
 var details = navigator.userAgent;
@@ -291,15 +324,16 @@ var isMobileDevice = regexp.test(details);
 if (isMobileDevice) {} else {
     console.log('inside desktop');
     var style = document.createElement('style');
-
+    style.innerHTML = 
+	'.embeddedServiceHelpButton .uiButton { height: 80px !important; min-width: 80px !important; width: 80px;}';
     style.innerHTML += 'li#esw-cta_3mi7Y0000000014{pointer-events : none;opacity :0.4;}';
-    style.innerHTML += '.embedded-service .channelmenu_ctas > li:last-child{pointer-events : none;opacity :0.4;}';
+    style.innerHTML += '.embedded-service .channelmenu_ctas > li:last-child{pointer-events : none;}';
     document.body.appendChild(style);
 }
 
 if (!window.embedded_svc || !window.embedded_svc.menu) {
     var s = document.createElement('script');
-    s.setAttribute('src', 'https://psa-customerfirst--preprod.sandbox.my.salesforce.com/embeddedservice/menu/fab.min.js');
+		s.setAttribute('src', 'https://psa-customerfirst--preprod.sandbox.my.salesforce.com/embeddedservice/menu/fab.min.js');
     s.onload = function() {
         initESW(null);
     };
@@ -308,5 +342,6 @@ if (!window.embedded_svc || !window.embedded_svc.menu) {
     initESW('https://service.force.com');
 }
 </script>
+
 </body>
 </html>
