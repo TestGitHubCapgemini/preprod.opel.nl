@@ -219,8 +219,38 @@
   <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
-<script type='text/javascript' src='https://service.force.com/embeddedservice/menu/fab.min.js'></script>
 <style>
+ .label{
+    background-color: transparent;
+    font-family: var(--lwc-fontFamily,"Arial"),sans-serif;
+    font-size: var(--lwc-esFontSizeMedium,0.8em);
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: normal;
+  }  
+  button[embeddedService-chatHeader_chatHeader]{
+	margin : 0em;
+	position : static;
+	padding : 1px 6px;
+}
+  
+.embeddedServiceSidebar.layout-float .dockableContainer {
+	z-index: 5000;
+}
+
+.embedded-service .fab {
+	z-index: 5000;
+}
+
+.embedded-service .channelmenu {
+	z-index: 5000;
+}
+
+/* Just for Opel */
+.embedded-service #esw-channelmenu_header.showAnimation > p {color: black  !important;}
+.embedded-service #esw-channelmenu_header.showAnimation > h2 {color: black  !important;}
+span.label.bBody{color: black  !important;}
+
 .embedded-service .fab div[class="icon_fab_container"] > img.esw-custom_icon{
 width : 100% !important;
 }
@@ -342,6 +372,7 @@ if (!window.embedded_svc || !window.embedded_svc.menu) {
     initESW('https://service.force.com');
 }
 </script>
+
 
 </body>
 </html>
