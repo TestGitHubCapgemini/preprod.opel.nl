@@ -333,13 +333,13 @@ color: black !important;
 <script type='text/javascript'>
 var initESW = function(gslbBaseURL) {
     // Required if you want labels in a language that’s different from your user’s context.
-    embedded_svc.menu.settings.language = 'nl_NL'; //For example, enter 'en' or 'en-US'
+    embedded_svc.menu.settings.language = 'de'; //For example, enter 'en' or 'en-US'
 	
-	embedded_svc.menu.init(
-			'https://psa-customerfirst--preprod.sandbox.my.salesforce.com',
-			'https://d.la3-c1cs-fra.salesforceliveagent.com/chat',
+		embedded_svc.menu.init(
+			'https://psa-customerfirst.my.salesforce.com',
+			'https://d.la3-c1-cdg.salesforceliveagent.com/chat',
 			gslbBaseURL,
-			'00D5t0000004fHO',
+			'00D0O000000YvX4',
 			'DE_OP_PCDO'
 		);
 
@@ -363,7 +363,7 @@ if (isMobileDevice) {} else {
 
 if (!window.embedded_svc || !window.embedded_svc.menu) {
     var s = document.createElement('script');
-		s.setAttribute('src', 'https://psa-customerfirst--preprod.sandbox.my.salesforce.com/embeddedservice/menu/fab.min.js');
+		s.setAttribute('src', 'https://psa-customerfirst.my.salesforce.com/embeddedservice/menu/fab.min.js');
     s.onload = function() {
         initESW(null);
     };
